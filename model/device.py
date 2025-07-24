@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from typing import Optional
 
 class Device(BaseModel):
-    device_id: Optional[int] = None
+    device_id : Optional[int] = None
     name: str
     category_id: int
     quantity: int

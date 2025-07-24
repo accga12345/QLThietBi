@@ -49,15 +49,34 @@ class DeviceRoutes:
         self.cursor.execute(query,(device_id,))
         self.conn.commit()
     
-    def check_name_exists(self, name):
-        query = "SELECT * FROM device WHERE name = %s"
-        self.cursor.execute(query, (name,))
+    def check_name_exists(self, name, exclude_id=None):
+        if exclude_id is not None:
+            query = "SELECT * FROM supplier WHERE name = %s AND supplier_id != %s"
+            self.cursor.execute(query, (name, exclude_id))
+        else:
+            query = "SELECT * FROM supplier WHERE name = %s"
+            self.cursor.execute(query, (name,))
         result = self.cursor.fetchone()
         return result
-    
+
+
     def search_devices(self, query):
         self.cursor.execute("SELECT * FROM device WHERE name LIKE %s", ('%' + query + '%',))
         result = self.cursor.fetchall()
         return result
 
+    def import_quantity(self, device_id, quantity):
+        query = "UPDATE device SET quantity = quantity + %s WHERE device_id = %s"
+        self.cursor.execute(query, (quantity, device_id))
+        self.conn.commit()
 
+    def export_quantity(self, device_id, quantity):
+        query = "UPDATE device SET quantity = quantity - %s WHERE device_id = %s"
+        self.cursor.execute(query, (quantity, device_id))
+        self.conn.commit()
+
+    def get_devices_by_supplier_id(self, supplier_id):
+        query = "SELECT * FROM device WHERE supplier_id = %s"
+        self.cursor.execute(query, (supplier_id,))
+        result = self.cursor.fetchall()
+        return result

@@ -1,10 +1,7 @@
-from controller.deviceController import DeviceController
-from view.view import DeviceView
+from view.home import HomeView
 
 def main():
-    controller = DeviceController()
-    view = DeviceView(controller)
-    controller.set_view(view)
+    view = HomeView()
     view.root.mainloop()
 
 if __name__ == "__main__":
