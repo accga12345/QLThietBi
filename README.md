@@ -76,7 +76,7 @@ QLThietBi/
 
 3. Cách Sử Dụng
 
-3.1. Sử dụng giao diện
+3.1. Sử dụng giao diện quản lý thiết bị
    - Thêm thiết bị: Điền form và nhấn "Add"
    - Cập nhật thiết bị: Chọn thiết bị từ danh sách, sửa form và nhấn "Update"
    - Xóa thiết bị: Chọn thiết bị và nhấn "Delete"
@@ -85,26 +85,96 @@ QLThietBi/
 
 <img width="1152" height="708" alt="image" src="https://github.com/user-attachments/assets/3ca6db6d-bef5-45b4-a0d1-5ea89a9842e9" />
 
-4. Các Tính Năng Chính
+Các Tính Năng Chính
 
-4.1. Quản lý thiết bị
+ Quản lý thiết bị
 - Thêm thiết bị mới với đầy đủ thông tin
 - Cập nhật thông tin thiết bị đã có
 - Xóa thiết bị khỏi hệ thống
 - Xem danh sách tất cả thiết bị
 
-4.2. Tìm kiếm và lọc
+Tìm kiếm và lọc
 - Tìm kiếm thiết bị theo tên
 - Hiển thị kết quả tìm kiếm real-time
 
-4.3. Xác thực dữ liệu
+Xác thực dữ liệu
 - Kiểm tra tên thiết bị không trùng lặp
 - Xác thực định dạng dữ liệu đầu vào
 
-4.4. Giao diện 
+Giao diện 
 - Form nhập liệu 
 - Bảng hiển thị dữ liệu có thể sắp xếp
 - Thông báo lỗi và thành công
+
+3.2. Sử dụng giao diện quản Quản lý nhà cung cấp
+   - Thêm thiết bị: Điền form và nhấn "Add"
+   - Cập nhật thiết bị: Chọn thiết bị từ danh sách, sửa form và nhấn "Update"
+   - Xóa thiết bị: Chọn thiết bị và nhấn "Delete"
+   - Tìm kiếm: Nhập tên thiết bị vào ô search và nhấn "Search"
+   - Làm mới: Nhấn "Refresh" để tải lại danh sách
+
+     <img width="782" height="591" alt="image" src="https://github.com/user-attachments/assets/32a2f9a1-9065-4fbe-a5eb-d275e312d0d8" />
+Các Tính Năng Chính
+
+ Quản lý nhà cung cấp
+- Thêm thiết bị mới với đầy đủ thông tin
+- Cập nhật thông tin thiết bị đã có
+- Xóa thiết bị khỏi hệ thống
+- Xem danh sách tất cả thiết bị
+
+Tìm kiếm và lọc
+- Tìm kiếm thiết bị theo tên
+- Hiển thị kết quả tìm kiếm real-time
+
+Xác thực dữ liệu
+- Kiểm tra tên thiết bị không trùng lặp
+- Xác thực định dạng dữ liệu đầu vào
+
+Giao diện 
+- Form nhập liệu 
+- Bảng hiển thị dữ liệu có thể sắp xếp
+- Thông báo lỗi và thành công
+
+3.3 Sử dụng giao diện nhập xuất
+   - nhập thiết bị: Điền form và nhấn "import"
+   - xuất thiết bị: Chọn thiết bị từ danh sách và nhấn "export"
+   - Tìm kiếm: Nhập tên thiết bị vào ô search và nhấn "Search"
+   - Làm mới: Nhấn "Refresh" để tải lại danh sách
+
+     <img width="411" height="507" alt="image" src="https://github.com/user-attachments/assets/9829142f-3e4b-444a-a30c-7a47bca569ee" />
+Các Tính Năng Chính
+
+ Quản lý nhập xuất
+- Thêm thiết bị mới với đầy đủ thông tin
+- xuất thiết bị
+- Xem danh sách tất cả thiết bị
+
+Tìm kiếm và lọc
+- Tìm kiếm thiết bị theo tên
+
+Xác thực dữ liệu
+- Kiểm tra tên thiết bị không trùng lặp
+- Xác thực định dạng dữ liệu đầu vào
+
+Giao diện 
+- Form nhập liệu 
+- Bảng hiển thị dữ liệu có thể sắp xếp
+- Thông báo lỗi và thành công
+
+
+3.4 Sử dụng giao diện phân loại sản phẩm theo nhà cung cấp
+   - Tìm kiếm: chọn nhà cung cáp ở combobox và sau đó ấn"xem sản phẩm"
+   - Làm mới: Nhấn "Refresh" để tải lại danh sách
+
+     <img width="1165" height="397" alt="image" src="https://github.com/user-attachments/assets/a8a7735f-8fce-4730-bd0f-61708bf51119" />
+
+Các Tính Năng Chính
+
+- Xem danh sách tất cả thiết bị dựa trên nhà cung cấp
+
+Giao diện 
+- combobox để chọn nhà cung cấp
+
 
 5. Xử Lý Lỗi
 Ứng dụng có các cơ chế xử lý lỗi:
