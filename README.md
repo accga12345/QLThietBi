@@ -13,11 +13,14 @@ QLThietBi/
 ├── controller/
 │   ├── deviceController.py    # Logic xử lý thiết bị
 │   └── categoryController.py  # Logic xử lý danh mục
+│   └── supplierController.py # Logic xử lý nhà cung cấp
 ├── model/
 │   ├── device.py             # Model dữ liệu thiết bị
 │   ├── deviceRoutes.py       # Thao tác cơ sở dữ liệu thiết bị
 │   ├── category.py           # Model dữ liệu danh mục
 │   └── categoryRoutes.py     # Thao tác cơ sở dữ liệu danh mục
+|   ├── supplier.py          # Model dữ liệu nhà cung cấp
+│   └── supplierRoutes.py    # Thao tác cơ sở dữ liệu nhà cung cấp
 └── view/
     └── view.py               # Giao diện người dùng
 ```
@@ -31,24 +34,34 @@ QLThietBi/
    CREATE DATABASE tech_inventory_db;
    USE tech_inventory_db;
 
-   CREATE TABLE category (
-       category_id INT AUTO_INCREMENT PRIMARY KEY,
-       name VARCHAR(255) NOT NULL,
-       description TEXT
-   );
+   CREATE TABLE `category` (
+      `category_id` int(11) NOT NULL,
+      `name` varchar(255) NOT NULL,
+      `description` text DEFAULT NULL
+    )
 
-   CREATE TABLE device (
-       device_id INT AUTO_INCREMENT PRIMARY KEY,
-       name VARCHAR(255) NOT NULL UNIQUE,
-       category_id INT,
-       quantity INT NOT NULL,
-       price DECIMAL(10,2) NOT NULL,
-       manufacturer VARCHAR(255),
-       description TEXT,
-       status VARCHAR(50),
-       FOREIGN KEY (category_id) REFERENCES category(category_id)
-   );
-   ```
+   CREATE TABLE `device` (
+      `device_id` int(11) NOT NULL,
+      `name` varchar(255) NOT NULL,
+      `category_id` int(11) DEFAULT NULL,
+      `supplier_id` int(11) DEFAULT NULL,
+      `quantity` int(11) NOT NULL,
+      `price` decimal(12,2) NOT NULL,
+      `manufacturer` varchar(255) DEFAULT NULL,
+      `description` text DEFAULT NULL,
+      `status` varchar(50) NOT NULL DEFAULT 'Available',
+      `created_at` datetime DEFAULT current_timestamp(),
+      `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
+    )
+
+   CREATE TABLE `supplier` (
+      `supplier_id` int(11) NOT NULL,
+      `name` varchar(255) NOT NULL,
+      `contact_person` varchar(255) DEFAULT NULL,
+      `phone` varchar(20) DEFAULT NULL,
+      `email` varchar(255) DEFAULT NULL,
+      `address` text DEFAULT NULL
+    )
 
 2. Cấu hình kết nối cơ sở dữ liệu
    Cập nhật thông tin đăng nhập database trong file `connect_db.py`:
@@ -64,28 +77,13 @@ QLThietBi/
 3. Cách Sử Dụng
 
 3.1. Sử dụng giao diện
-   - **Thêm thiết bị**: Điền form và nhấn "Add"
-   - **Cập nhật thiết bị**: Chọn thiết bị từ danh sách, sửa form và nhấn "Update"
-   - **Xóa thiết bị**: Chọn thiết bị và nhấn "Delete"
-   - **Tìm kiếm**: Nhập tên thiết bị vào ô search và nhấn "Search"
-   - **Làm mới**: Nhấn "Refresh" để tải lại danh sách
+   - Thêm thiết bị: Điền form và nhấn "Add"
+   - Cập nhật thiết bị: Chọn thiết bị từ danh sách, sửa form và nhấn "Update"
+   - Xóa thiết bị: Chọn thiết bị và nhấn "Delete"
+   - Tìm kiếm: Nhập tên thiết bị vào ô search và nhấn "Search"
+   - Làm mới: Nhấn "Refresh" để tải lại danh sách
 
-3.2. Cấu Trúc Cơ Sở Dữ Liệu
-
-Bảng `category`
-- `category_id`: Khóa chính (INT, AUTO_INCREMENT)
-- `name`: Tên danh mục (VARCHAR(255))
-- `description`: Mô tả danh mục (TEXT)
-
-Bảng `device`
-- `device_id`: Khóa chính (INT, AUTO_INCREMENT)
-- `name`: Tên thiết bị (VARCHAR(255), UNIQUE)
-- `category_id`: Khóa ngoại liên kết với bảng category (INT)
-- `quantity`: Số lượng (INT)
-- `price`: Giá (DECIMAL(10,2))
-- `manufacturer`: Nhà sản xuất (VARCHAR(255))
-- `description`: Mô tả (TEXT)
-- `status`: Trạng thái (VARCHAR(50))
+<img width="1152" height="708" alt="image" src="https://github.com/user-attachments/assets/3ca6db6d-bef5-45b4-a0d1-5ea89a9842e9" />
 
 4. Các Tính Năng Chính
 
